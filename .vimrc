@@ -24,9 +24,12 @@ syntax on
 set background=dark
 colorscheme PaperColor
 
-
 " Highlight tmux pane compatible with vim
 highlight Normal ctermfg=145 ctermbg=none guifg=#ABB2BF guibg=none
+
+" Highlight tmux pane compatible with vim
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=none gui=NONE guifg=DarkGrey guibg=NONE
+
 
 " highlight all the line where the cursor is
 set cursorline
