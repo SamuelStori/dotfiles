@@ -111,3 +111,22 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" ====================
+" ====================
+" NerdTree
+" ====================
+" ====================
+
+nmap <F9> :NERDTreeToggle<CR>
+" Ignore .pyc files in NERDtree
+let NERDTreeIgnore=['\.pyc$']
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+
+" enable line numbers
+let NERDTreeShowLineNumbers=1
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber
+
+
