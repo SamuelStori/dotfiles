@@ -12,6 +12,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'preservim/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'preservim/tagbar'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -133,3 +134,10 @@ let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber
 
 
+
+" ====================
+" ====================
+" TagBar
+" ====================
+" ====================
+nmap <F8> :TagbarToggle<CR>
