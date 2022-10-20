@@ -1,6 +1,12 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" Remap <leader>
+let mapleader=","
+
+" Remap <localleader>
+let maplocalleader=",,"
+
 
 call plug#begin()
 
@@ -13,6 +19,9 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'preservim/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/tagbar'
+Plug 'lervag/vimtex' " To create .tex file.
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -141,3 +150,28 @@ autocmd FileType nerdtree setlocal relativenumber
 " ====================
 " ====================
 nmap <F8> :TagbarToggle<CR>
+
+
+" =============================
+" ========= Latex =============
+" ====== with vimtex ==========
+" =============================
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1  " Hide code when your cursor is not in the line. 
+let g:tex_conceal='abdmg' " Hide code when your cursor is not in the line.
+
+" Be able to put code with minted
+" https://github.com/lervag/vimtex/issues/467
+"
+let g:vimtex_compiler_latexmk = {
+\ 'options' : [
+\ '-pdf',
+\ '--shell-escape',
+\ '-verbose',
+\ '-file-line-error',
+\ '-synctex=1',
+\ '-interaction=nonstopmode',
+\ ],
+\}
